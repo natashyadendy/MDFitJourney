@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- View for the top divider -->
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:backgroundTint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/tvHomeSubtitle"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lnDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view">
+
+            <com.qusion.lib_roundprogressbar.RoundProgressBar
+                android:id="@+id/progressbar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="10dp"
+                app:background_color="#FFFFFF"
+                app:background_stroke_width="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:progress="50"
+                app:progress_color="#FFFFFF"
+                app:stroke_width="10dp"
+                app:style="half" />
+
+            <com.qusion.lib_roundprogressbar.RoundProgressBar
+                android:id="@+id/progressbar2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:padding="10dp"
+                app:background_color="#FFFFFF"
+                app:background_stroke_width="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toStartOf="@+id/progressbar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:progress="20"
+                app:progress_color="@color/white"
+                app:stroke_width="10dp"
+                app:style="half" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/consumed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Food Suggestion"
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/remaining"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text=" "
+                    android:textColor="@color/black"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_suggestion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="-70dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lnDashboard" />
+
+        <!-- fitJourney Icon -->
+        <ImageView
+            android:id="@+id/fitJourneyIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:src="@drawable/fitjourneysmall"
+            android:transitionName="icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- App Name Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="30dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:transitionName="@string/app_name"
+            app:layout_constraintStart_toEndOf="@id/fitJourneyIcon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Logout Button -->
+        <ImageView
+            android:id="@+id/ibLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/baseline_logout_24"
+            android:contentDescription="@string/logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/transparent"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintTop_toBottomOf="@id/fitJourneyIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp" />
+
+        <!-- Home Title -->
+        <TextView
+            android:id="@+id/tvHomeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/home_title"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/ivProfile"
+        app:layout_constraintTop_toTopOf="@id/ivProfile"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Home Subtitle -->
+        <TextView
+            android:id="@+id/tvHomeSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/home_subtitle"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf="@id/ivProfile"
+        app:layout_constraintTop_toBottomOf="@id/tvHomeTitle"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <!-- MotionLayout (for carousel) -->
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/carousel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutDescription="@xml/activity_main_xml_carousel_scene"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHomeSubtitle" />
+
+        <!-- Custom Food Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCustomFood"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:backgroundTint="@color/white"
+            android:elevation="10dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:paddingVertical="15dp"
+            android:text="@string/breakfast"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:cornerRadius="10dp"
+            app:icon="@drawable/ic_custom_food"
+            app:iconPadding="16dp"
+            app:iconSize="30dp"
+            app:iconTint="@color/black"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnFoodJournal" />
+
+        <!-- Custom Food Button -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/btnLunch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="10dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnCustomFood"
+            android:layout_marginHorizontal="20dp"
+            app:icon="@drawable/ic_custom_food"
+            app:iconTint="@color/black"
+            app:iconSize="30dp"
+            android:elevation="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/lunch"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            app:iconPadding="16dp"
+            android:fontFamily="@font/poppins_semibold" />
+
+        <!-- Custom Food Button -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/btnDinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="10dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnLunch"
+            android:layout_marginHorizontal="20dp"
+            app:icon="@drawable/ic_custom_food"
+            app:iconTint="@color/black"
+            app:iconSize="30dp"
+            android:elevation="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/dinner"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            app:iconPadding="16dp"
+            android:fontFamily="@font/poppins_semibold" />
+
+        <!-- Custom Food Button -->
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:id="@+id/btnSnack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="10dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnDinner"
+            android:layout_marginHorizontal="20dp"
+            app:icon="@drawable/ic_custom_food"
+            app:iconTint="@color/black"
+            app:iconSize="30dp"
+            android:elevation="10dp"
+            android:paddingVertical="15dp"
+            android:text="@string/snack"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            app:iconPadding="16dp"
+            android:fontFamily="@font/poppins_semibold" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnFoodJournal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/transparent"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Food Journal"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:icon="@drawable/baseline_arrow_forward"
+            app:iconGravity="end"
+            app:iconTint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_suggestion" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
